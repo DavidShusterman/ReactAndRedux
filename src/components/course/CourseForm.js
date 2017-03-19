@@ -34,6 +34,10 @@ class CourseForm extends React.Component{
     }
 }
 
+CourseForm.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    courses: PropTypes.array.isRequired
+};
 function mapStateToProps(state, ownProps) {
     return {
         courses:state.courses
