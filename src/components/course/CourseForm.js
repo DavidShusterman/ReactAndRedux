@@ -1,6 +1,5 @@
-import React, {PropTypes} from 'react';
-import * as courseActions from '../../actions/CourseActions';
-import {connect} from 'react-redux';
+import React from 'react';
+
 
 class CourseForm extends React.Component{
     constructor(props,context){
@@ -20,7 +19,7 @@ class CourseForm extends React.Component{
     }
 
     onClickSave(){
-        this.props.dispatch(courseActions.createCourse(this.state.course));
+        this.props.actions.createCourse(this.state.course);
     }
 
     render(){
@@ -34,10 +33,7 @@ class CourseForm extends React.Component{
     }
 }
 
-function mapStateToProps(state, ownProps) {
-    return {
-        courses:state.courses
-    };
-}
 
-export default connect(mapStateToProps)(CourseForm);
+
+
+export default CourseForm;
