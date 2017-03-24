@@ -60,6 +60,7 @@
     "redux-immutable-state-invariant": "2.0.0",
     "redux-mock-store": "1.2.2",
     "rimraf": "2.6.1",
+    "snyk": "^1.25.2",
     "style-loader": "0.14.1",
     "url-loader": "0.5.8",
     "webpack": "^2.1.0-beta.21",

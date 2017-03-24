@@ -22,7 +22,7 @@ class CoursePage extends React.Component{
 } 
 
 CourseForm.propTypes = {
-    dispatch: PropTypes.func.isRequired,
+    actions: PropTypes.object.isRequired,
     courses: PropTypes.array.isRequired,
     
 };
