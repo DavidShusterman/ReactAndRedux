@@ -1,39 +1,39 @@
 import React from 'react';
+import TextInput from '../common/TextInput';
+import SelectInput from '../common/SelectInput';
 
+const CourseForm = ({course,allAuthors,onSave,onChange,loading,errors})=>{
+    return(
+        <form>
+            <h1>Manage Courses</h1>
+            <TextInput 
+                name="title" 
+                label="Title" 
+                value={course.title} 
+                onChange={onChange} 
+                error={errors.title} />
 
-class CourseForm extends React.Component{
-    constructor(props,context){
-        super(props,context);
-        this.state = {
-            course: {title:""}
-        };
+            <SelectInput 
+                name="authorId" 
+                label="Author" 
+                value={course.authorId} 
+                defaultOption="Select Author" 
+                options = {allAuthors} 
+                onChange={onChange} error={errors.authorId}/>
 
-        this.onTitleChange = this.onTitleChange.bind(this);
-        this.onClickSave = this.onClickSave.bind(this);
-    }
+            <TextInput 
+                name="category" 
+                label="Category" 
+                value={course.category} 
+                onChange={onChange} 
+                error={errors.category} />
 
-    onTitleChange(event){
-        const course = this.state.course;
-        course.title=event.target.value;
-        this.setState({course:course});
-    }
-
-    onClickSave(){
-        this.props.actions.createCourse(this.state.course);
-    }
-
-    render(){
-        return (
-            <div>
-                <h2>Add Course</h2>
-                <input type="text" onChange={this.onTitleChange} value={this.state.course.title}/>
-                <input type="submit" onClick={this.onClickSave} value="Save"/>
-            </div>
-        );
-    }
+            <TextInput 
+                name="length" 
+                label="Length" 
+                value={course.length} 
+                onChange={onChange} 
+                error={errors.length} />
+        </form>
+    )
 }
-
-
-
-
-export default CourseForm;
