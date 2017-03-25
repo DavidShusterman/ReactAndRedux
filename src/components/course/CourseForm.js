@@ -5,7 +5,7 @@ import SelectInput from '../common/SelectInput';
 const CourseForm = ({course,allAuthors,onSave,onChange,loading,errors})=>{
     return(
         <form>
-            <h1>Manage Courses</h1>
+        <h1>Manage Courses</h1>
             <TextInput 
                 name="title" 
                 label="Title" 
@@ -42,5 +42,16 @@ const CourseForm = ({course,allAuthors,onSave,onChange,loading,errors})=>{
                 className="btn btn-primary"
                 onClick={onSave}/>
         </form>
-    )
-}
+    );
+};
+
+CourseForm.propTypes = {
+    course:React.PropTypes.object.isRequired,
+    allAuthors: React.PropTypes.array,
+    onSave:React.PropTypes.func.isRequired,
+    onChange:React.PropTypes.func.isRequired,
+    loading:React.PropTypes.bool,
+    errors: React.PropTypes.object
+};
+
+export default CourseForm;

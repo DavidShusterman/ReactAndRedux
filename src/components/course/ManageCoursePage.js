@@ -2,25 +2,47 @@ import React,{PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as courseActions from '../../actions/CourseActions';
+import CourseForm from './CourseForm';
 
 class ManageCoursePage extends React.Component{
     constructor(props,context){
         super(props,context);
+
+        this.state={
+            course: Object.assign({},props.course),
+            errors:{}
+        };
     }
     render(){
         return(
-            <h1>Manage Course</h1>
+            <div>
+                <CourseForm 
+                allAuthors={this.props.authors}
+                course={this.state.course}
+                errors={this.state.errors}
+                />
+            </div>
+            
         );
-    };
+    }
 } 
 
 ManageCoursePage.propTypes ={
-
+    course: PropTypes.object.isRequired,
+    authors:PropTypes.array.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
+    let course = {id:'',watchHref:'',title:'',authorId:'',length:'',category:''};
+    const authorsFormattedForDropdown = state.authors.map(author=> {
+        return{
+            value: author.id,
+            text: author.firstName + ' ' + author.lastName
+        };
+    });
     return {
-        courses:state.courses
+        course:course,
+        authors: authorsFormattedForDropdown
     };
 }
 
