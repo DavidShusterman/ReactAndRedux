@@ -59,7 +59,7 @@ ManageCoursePage.propTypes ={
 
 ManageCoursePage.contextTypes = {
     router: PropTypes.object
-}
+};
 
 function getCourseById(courses,id) {
     const course = courses.filter(course => course.id==id);
